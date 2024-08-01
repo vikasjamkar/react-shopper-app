@@ -15,6 +15,7 @@ const SignUpPage = () => {
   const [users, setUsers] = useState([]);
 
   const handleSubmit = (values, { resetForm }) => {
+    toast.info("👷🏼 Page under in Progress...");
     axios({
       method: "post",
       url: "http://127.0.0.1:2050/register",
