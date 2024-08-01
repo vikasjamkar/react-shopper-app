@@ -7,7 +7,7 @@ const ReviewLayout = ({ title, data }) => {
   if (title == "description") {
     return (
       <div>
-        <h2>Description</h2>
+        {/* <h2>Description</h2>
         <p style={{ width: "100%" }}>{data.description}</p>
         <dl>
           <dt>Product Title</dt>
@@ -18,7 +18,7 @@ const ReviewLayout = ({ title, data }) => {
           <dd>{data.brand}</dd>
           <dt>Price</dt>
           <dd>&#8377;{data.price}</dd>
-        </dl>
+        </dl> */}
       </div>
     );
   } else if (title == "size") {
