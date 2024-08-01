@@ -1,0 +1,61 @@
+
+#notFound{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#notFound img{
+	width: 400px;
+	height: 400px;
+
+}
+@media (max-width:767px) {
+	#notFound img{
+		width: 100%;
+		height: auto;
+
+	}
+	#notFound{
+		display: flex;
+		justify-content: center;
+		margin-top: 60px;
+	}
+
+}
+@media (min-width:768px) and (max-width:1023px){
+	#notFound img{
+		width: 100%;
+		height: auto;
+	}
+	#notFound{
+		display: flex;
+		justify-content: center;
+		height:400px;
+	}
+}
+@media (min-width:1024px) and (max-width:1279px){
+	#notFound img{
+		width: 50%;
+		height: auto;
+
+	}
+	#notFound{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+@media (max-width:1280px){
+
+	#notFound img{
+		width: 50%;
+		height: auto;
+
+	}
+	#notFound{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+}

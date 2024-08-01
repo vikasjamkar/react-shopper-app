@@ -1,0 +1,13 @@
+#confirm-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px 30px;
+}
+#confirm-container .confirm-box img{
+	width: 300px;
+	height: 300px;
+}
+#confirm-container .confirm-box .order-button{
+	text-align: center;
+}

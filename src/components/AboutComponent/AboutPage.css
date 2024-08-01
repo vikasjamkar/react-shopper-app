@@ -1,0 +1,111 @@
+#aboutBanner{
+	background-image: url('../../assets/images/b19.jpg');
+	background-size: cover;
+	height: 150px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: white;
+}
+#aboutBanner h5{
+  color: white;
+  font-size: 45px;
+}
+#about-container{
+	display: grid;
+	grid-template-columns: repeat(2,auto);
+	gap: 30px;
+	padding:50px 50px;
+}
+#about-container h5{
+	font-size: 45px;
+}
+#about-container p{
+	text-align: justify;
+}
+#aboutApp{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 30px;
+}
+#aboutApp video{
+	width: 60%;
+	height: auto;
+	border-radius: 20px;
+}
+#aboutApp h4{
+	font-size: 45px;
+}
+#aboutApp strong{
+	color:#088178;
+}
+
+@media(max-width:767px) {
+	#about-container {
+		display: grid;
+		grid-template-columns: repeat(1,auto);
+		gap: 30px;
+		padding: 50px 10px;
+	}
+	#about-container h5{
+		font-size: 28px;
+	}
+	#aboutBanner h5{
+		font-size: 25px;
+	}
+	#aboutBanner p{
+		font-size: 11px;
+	}
+	#aboutApp h4{
+		font-size: 30px;
+	}
+	#aboutApp video{
+		width: 100%;
+		height: auto;
+		border-radius: 20px;
+	}
+	#aboutBanner{
+		background-image: url('../../assets/images/b19.jpg');
+		background-size: cover;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: white;
+		margin-top: 50px;
+	}
+}
+@media (min-width:768px) and (max-width:1023px){
+	#about-container {
+		display: grid;
+		grid-template-columns: repeat(1,auto);
+		gap: 30px;
+		padding: 50px 50px;
+	}
+	#aboutBanner{
+		background-image: url('../../assets/images/b19.jpg');
+		background-size: cover;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: white;
+	}
+}
+@media (min-width:1024px) and (max-width:1279px){
+	#aboutBanner{
+		background-image: url('../../assets/images/b19.jpg');
+		background-size: cover;
+		height: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		color: white;
+	}
+}

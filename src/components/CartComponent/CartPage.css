@@ -1,0 +1,207 @@
+/* @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*{
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'League Spartan', sans-serif;
+} */
+
+#cart-container{
+	padding: 50px 30px;
+}
+.cart-title{
+	text-align: center;
+	margin-top: 28px;
+	padding: 10px;
+
+}
+.cart-title h2{
+	text-transform:capitalize;
+	font-weight:300;
+	text-align: center;
+}
+
+#cart-grid{
+	display: grid;
+	grid-template-columns: 8fr 4fr;
+	gap: 30px;
+}
+.cartTable{
+	background-color: white;
+	padding: 20px;
+
+}
+#table-container{
+	border: 1px solid lightgrey;
+	padding: 30px;
+}
+
+table thead th{
+	text-transform: capitalize;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+	border-top: 1px solid lightgrey;
+}
+table{
+	table-layout: fixed;
+}
+table tbody tr #quantity{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	background-color: whitesmoke;
+	padding: 2px;
+	border-radius: 15px;
+	width: 100%;
+}
+table tbody tr #quantity button{
+   border: none;
+   margin-left: 5px;
+   background: none;
+}
+table tbody tr td{
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center; /* Center content horizontally */
+	vertical-align: middle; /* Center content vertically */
+
+}
+.cartTable .cartEmpty{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 30px 0px;
+}
+.cartTable .cartEmpty #emptyLogin{
+	/* background-color: black; */
+	color: black;
+	padding: 10px 10px;
+
+
+}
+
+#priceBox{
+	background-color:whitesmoke;
+
+}
+#priceBox .checklist{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+
+}
+#priceBox .checklist p{
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: capitalize;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#TotalBox {
+	border: 1px solid lightgrey;
+	padding: 20px;
+}
+#TotalBox button{
+	background-color: black;
+	color: white;
+	width: 100%;
+	height: 50px;
+	margin-top: 25px;
+	border: none;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#cart-grid #continue{
+	margin: 20px;
+}
+#cart-grid #continue button{
+	background-color: rgb(13, 13, 14);
+    padding: 12px;
+	color:  white;
+	width: 100%;
+	height: 50px;
+	outline: none;
+	border: none;
+	margin-top: 25px;
+
+}
+@media (max-width:767px){
+	#cart-container{
+		padding: 50px 0px;
+	}
+	#cart-grid{
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+	#table-container{
+		padding: 0px 0px;
+		border: 0px solid lightgrey;
+	}
+	.cartBanner h3{
+		text-transform: capitalize;
+		margin-top: 30px;
+		font-weight: bold;
+	}
+	table{
+		table-layout: unset;
+	}
+	#cart-grid #continue button{
+		background-color: rgb(13, 13, 14);
+		padding: 12px;
+		color:  white;
+		width: 100%;
+		height: 50px;
+		outline: none;
+		border: none;
+		margin-top: 25px;
+
+	}
+}
+@media (min-width:768px) and (max-width:1023px){
+	#cart-container{
+		padding: 0px 0px;
+	}
+	#cart-grid{
+		display: grid;
+		grid-template-columns:auto;
+	}
+	#table-container{
+		padding: 0px 0px;
+		border: 0px solid lightgrey;
+	}
+	.cartBanner h3{
+		text-transform: capitalize;
+		padding-top: 10px;
+		font-weight: bold;
+
+	}
+	table tbody tr #quantity {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		background-color: whitesmoke;
+		padding: 2px 0px;
+		border-radius: 15px;
+		width: 100%;
+	}
+	#proceed{
+		display: flex;
+		justify-content: flex-end;
+	}
+	#TotalBox button {
+		background-color: black;
+		color: white;
+		width: 30%;
+		height: 50px;
+		border: none;
+	}
+	#cart-grid #continue button {
+		background-color: rgb(13, 13, 14);
+		padding: 12px;
+		color: white;
+		width: 30%;
+		height: 50px;
+		outline: none;
+		border: none;
+		margin-top: 25px;
+	}
+
+}
