@@ -11,6 +11,7 @@ header{
 	position: fixed;
 	top:0% ;
 	left: 0%;
+	right: 0%;
 	z-index:55;
 	width: 100%;
 	background: white;
@@ -155,20 +156,19 @@ header b{
 	}
 	#mobile-navbar{
 		display: block;
+
 	}
 	#shopper_categories{
 		display: none;
 	}
 }
 @media (min-width:768px) and (max-width:1023px){
-	header{
-		display: none;
-	}
+
 	#heading{
 		display: none;
 	}
 	#mobile-navbar{
-		display: block;
+		display: none;
 	}
 	#shopper_categories{
 		display: flex;

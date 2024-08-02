@@ -125,7 +125,7 @@
 	#product-navbar{
 		display: flex;
 		justify-content: space-between;
-		margin-top: 60px;
+
 	}
 	#grid{
 		display: grid;
@@ -177,7 +177,6 @@
 	#product-navbar{
 		display: flex;
 		justify-content: space-between;
-		margin-top: 10px;
 	}
 	#grid{
 		padding: 20px 10px;

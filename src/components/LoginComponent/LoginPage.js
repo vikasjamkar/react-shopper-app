@@ -12,7 +12,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
 
   const handleLogin = (values, { resetForm }) => {
-    toast.info("👷🏼 Page under in Progress..");
+    // toast.info("👷🏼 Page under in Progress..");
     const req = {
       email: values.email,
       password: values.Password,

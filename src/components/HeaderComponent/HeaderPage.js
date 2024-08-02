@@ -131,12 +131,10 @@ const HeaderPage = () => {
           </span>
         </div>
       </header>
-
+      <div id="mobile-navbar">
+        <NavbarPage />
+      </div>
       <nav>
-        <div id="mobile-navbar">
-          <NavbarPage />
-        </div>
-
         <div id="shopper_categories">
           <div className="category-container">
             <img src={mobiles} alt="mobile" />

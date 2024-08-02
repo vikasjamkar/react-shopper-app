@@ -6,6 +6,15 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import avatar from "../../assets/images/memo_34.png";
 import logo from "../../assets/images/shopperlogo.png";
+import { LuAlignJustify } from "react-icons/lu";
+import { GoHome } from "react-icons/go";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { IoPersonCircleOutline } from "react-icons/io5";
+import { FaBoxOpen } from "react-icons/fa";
+import { RiCloseLargeFill } from "react-icons/ri";
+import { MdNotificationsNone } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
+import { FaToggleOn } from "react-icons/fa6";
 
 const NavbarPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,38 +90,52 @@ const NavbarPage = () => {
     setIsOpen(false);
   };
   return (
-    <div id="main-header">
-      <div id="header">
-        <div id="logo">
-          <img src={logo} alt="" width="40" height="40" />{" "}
+    <div className="main-header">
+      {/* <div className="header">
+        <div className="logo">
+          <div className="me-3">
+            {" "}
+            <img src={logo} alt="logo" width="50" height="50" />
+          </div>
+          <h1>Shopper</h1>
         </div>
-        <div id="nav-icons">
-          <span>
-            <i
-              className="fa-solid fa-cart-shopping position-relative"
-              onClick={navCart}
-            ></i>
-            {items.length == 0 ? (
-              ""
-            ) : (
-              <div className="badge rounded-pill bg-danger position-absolute">
-                {items.length}
-              </div>
-            )}
-          </span>
+
+        <div id="notification">
+          <MdNotificationsNone />
+        </div>
+      </div> */}
+      <div className="bottom_header">
+        <div>
+          <GoHome className="icon" onClick={homeClick} />
+        </div>
+        <div>
+          <IoPersonCircleOutline className="icon" onClick={profileClick} />
+        </div>
+        <div>
+          <AiOutlineShoppingCart className="icon" onClick={navCart} />{" "}
+          {!items.length == 0 && (
+            <div className="badge rounded-pill bg-danger position-absolute">
+              {items.length}
+            </div>
+          )}
+        </div>
+        <div>
+          <FaBoxOpen className="icon" onClick={ordersClick} />
+        </div>
+        <div>
           {isOpen ? (
             <span onClick={toggleCloseClick}>
-              <img src={close} alt="close" height="30" width="30" />
+              <RiCloseLargeFill className="icon" />
             </span>
           ) : (
             <span onClick={toggleJustifyClick}>
-              <img src={justify} alt="justify" height="30" width="30" />
+              <LuAlignJustify className="icon" />
             </span>
           )}
         </div>
       </div>
-      {isOpen ? (
-        <div id="nav-bar-container">
+      {isOpen && (
+        <div className="nav-bar-container">
           <div className="nav">
             <div className="nav-child">
               <span>
@@ -136,7 +159,7 @@ const NavbarPage = () => {
                 )}
               </span>
 
-              {isLoggedIn ? (
+              {isLoggedIn && (
                 <button
                   style={{
                     background: "transparent",
@@ -146,100 +169,63 @@ const NavbarPage = () => {
                   className="bi bi-chevron-down"
                   onClick={profileToggleClick}
                 ></button>
-              ) : (
-                ""
               )}
             </div>
             {profile && isLoggedIn ? (
-              <div id="profile">
-                <span
-                  onClick={profileClick}
-                  className="d-flex justify-content-between align-items-center"
-                >
-                  <div className="bi bi-person-circle fs-5" id="circle-icon">
-                    {" "}
-                    &nbsp; My Profile
+              <div className="profile">
+                <span onClick={wishlistClick}>
+                  <div id="icon">
+                    <FaRegHeart />
                   </div>
-                  <div className="bi bi-chevron-right"></div>
-                </span>
-                <span
-                  className="d-flex justify-content-between align-items-center"
-                  onClick={wishlistClick}
-                >
-                  <div className="bi bi-heart fs-5" id="circle-icon">
-                    {" "}
-                    &nbsp; My Wishlist
-                  </div>
-                  <div className="bi bi-chevron-right"></div>
                 </span>
 
-                <span
-                  className="d-flex justify-content-between align-items-center"
-                  onClick={ordersClick}
-                >
-                  <div className="bi bi-box fs-5" id="circle-icon">
+                <span onClick={logOutClick}>
+                  <div id="icon">
                     {" "}
-                    &nbsp; My Orders
+                    <FaToggleOn />
                   </div>
-                  <div className="bi bi-chevron-right"></div>
-                </span>
-
-                <span
-                  onClick={logOutClick}
-                  className="d-flex justify-content-between align-items-center"
-                >
-                  <div id="circle-icon" className="bi bi-toggle-off fs-5">
-                    {" "}
-                    &nbsp; Log out
-                  </div>
-                  <div className="bi bi-chevron-right"></div>
                 </span>
               </div>
             ) : (
               ""
             )}
-            <div id="navigator">
+            <div className="navigator">
               <span>
                 <span
-                  id="link"
                   onClick={homeClick}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between link"
                 >
                   Home <i className="bi bi-arrow-right"></i>
                 </span>
               </span>
               <span>
                 <span
-                  id="link"
                   onClick={productsClick}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between link"
                 >
                   Products <i className="bi bi-arrow-right"></i>
                 </span>
               </span>
               <span>
                 <span
-                  id="link"
                   onClick={shopClick}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between link"
                 >
                   Shop <i className="bi bi-arrow-right"></i>
                 </span>
               </span>
               <span>
                 <span
-                  id="link"
                   onClick={aboutClick}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between link"
                 >
                   About <i className="bi bi-arrow-right"></i>
                 </span>
               </span>
               <span>
                 <span
-                  id="link"
                   onClick={contactClick}
-                  className="d-flex justify-content-between"
+                  className="d-flex justify-content-between link"
                 >
                   Contact <i className="bi bi-arrow-right"></i>
                 </span>
@@ -247,8 +233,6 @@ const NavbarPage = () => {
             </div>
           </div>
         </div>
-      ) : (
-        ""
       )}
     </div>
   );
