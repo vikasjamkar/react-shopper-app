@@ -41,6 +41,10 @@ const NavbarPage = () => {
     setIsOpen(false);
   };
 
+  const testClick = () => {
+    navigate("/login");
+  };
+
   const wishlistClick = () => {
     navigate("/wishlist");
     setIsOpen(false);
@@ -109,7 +113,7 @@ const NavbarPage = () => {
           <GoHome className="icon" onClick={homeClick} />
         </div>
         <div>
-          <IoPersonCircleOutline className="icon" onClick={profileClick} />
+          <IoPersonCircleOutline className="icon" onClick={testClick} />
         </div>
         <div>
           <AiOutlineShoppingCart className="icon" onClick={navCart} />{" "}
@@ -120,7 +124,7 @@ const NavbarPage = () => {
           )}
         </div>
         <div>
-          <FaBoxOpen className="icon" onClick={ordersClick} />
+          <FaBoxOpen className="icon" onClick={testClick} />
         </div>
         <div>
           {isOpen ? (

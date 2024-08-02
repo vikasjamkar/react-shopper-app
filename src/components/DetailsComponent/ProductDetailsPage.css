@@ -146,10 +146,9 @@
 	#Details-parent{
 		width: 100%;
 		height: 100%;
-		padding: 30px 0px;
+		padding: 0px 0px;
 		display: flex;
 		flex-wrap: wrap;
-		margin-top: 10px;
 		background-color: whitesmoke;
 	}
 	#Details-parent .Details-child-1{
@@ -203,6 +202,11 @@
 		display: flex;
 		justify-content: space-evenly;
 		padding: 10px 10px;
+		font-size: 12px;
+	}
+	#feature-box img{
+		width: 30px;
+		height: 30px;
 	}
 	#Details-parent .Details-child-2 strong {
 		font-size: 22px;

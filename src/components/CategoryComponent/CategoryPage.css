@@ -86,7 +86,6 @@
 
 @media (max-width:767px){
 	#category-title h5 {
-		margin-top:50px;
 		text-transform: capitalize;
 		padding: 20px 40px;
 		border-bottom: 5px solid white;
