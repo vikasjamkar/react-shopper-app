@@ -21,6 +21,7 @@ import poster01 from "../../assets/images/poster01.svg";
 import poster02 from "../../assets/images/poster02.svg";
 import poster05 from "../../assets/images/poster05.svg";
 import poster04 from "../../assets/images/poster04.svg";
+import Card from "../ProductsCards/Card";
 
 const FilterPrice = ({ onFilterChange }) => {
   const [selectedPrice, setSelectedPrice] = useState("");
@@ -426,50 +427,11 @@ const ProductsPage = () => {
         )}
         <section>
           {products.length > 0 ? (
-            products.map((product) => (
-              <div
-                className="product_card position-relative"
-                data-aos="fade-up"
-                key={product.id}
-              >
-                <div className="product_card_img">
-                  <Link to={`/details/` + product.id}>
-                    <img src={product.thumbnail} alt={product.title} />
-                  </Link>
-                </div>
-                <div className="product_card_body">
-                  <span
-                    className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                    id="heart"
-                    onClick={() => wishItemAdd(product)}
-                  ></span>
-                  {product.rating >= 6 ? (
-                    <div id="offer_label">{"Best Seller"}</div>
-                  ) : (
-                    <div></div>
-                  )}
-                  {product.new === false ? (
-                    <div id="offer_label_02">{"new"}</div>
-                  ) : (
-                    <div></div>
-                  )}
-                  <p>{product.brand}</p>
-                  <div>
-                    <h6>{product.title}</h6>
-                    <div className="d-flex">
-                      <h5>&#8377;{product.price}</h5>
-                      <div id="rating">({product.rating}) %</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))
+            products.map((product) => <Card key={product.id} data={product} />)
           ) : (
             <div>
-              <div>
-                <img src={empty} alt="nodata" height="200" width="200" />
-                <h3>No Product Found</h3>
-              </div>
+              <img src={empty} alt="nodata" height="200" width="200" />
+              <h3>No Product Found</h3>
             </div>
           )}
         </section>

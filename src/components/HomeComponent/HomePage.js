@@ -10,23 +10,17 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import hero1 from "../../assets/images/navBanner-2.jpg";
 import hero2 from "../../assets/images/hero-1.jpg";
-
 import b1 from "../../assets/images/B-1.png";
 import b2 from "../../assets/images/B-2.png";
 import b3 from "../../assets/images/B-3.svg";
 import b4 from "../../assets/images/b-4.svg";
 import b5 from "../../assets/images/B-5.png";
-
-import { useDispatch } from "react-redux";
-import { addWish } from "../../store/WishlistSlice";
-import { Link } from "react-router-dom";
 import { allCategory, allProducts } from "../../services/productServices";
+import Card from "../ProductsCards/Card";
 
 const HomePage = () => {
-  const dispatch = useDispatch();
   const [homeProduct, setHomeProduct] = useState([]);
   const [newArrival, setNewArrival] = useState([]);
-  const isLoggedIn = JSON.parse(sessionStorage.getItem("isLoggedIn"));
 
   const getHomeProduct = async () => {
     const result = await allCategory("mobile-accessories");
@@ -44,15 +38,6 @@ const HomePage = () => {
     getHomeProduct();
     getNewArrival();
   }, []);
-
-  const wishItemAdd = (wish) => {
-    if (isLoggedIn) {
-      dispatch(addWish(wish));
-      toast.success("Added to Wishlist");
-    } else {
-      toast.warn("You are not logged In");
-    }
-  };
 
   return (
     <>
@@ -141,37 +126,7 @@ const HomePage = () => {
 
       <section id="products">
         {homeProduct.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              <div className="sale">Sale</div>
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title}</h6>
-                <div>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-half text-warning">
-                    &nbsp;{product.rating}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
       </section>
 
@@ -192,37 +147,7 @@ const HomePage = () => {
 
       <section id="products">
         {newArrival.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              <div id="offer-label">New</div>
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title.toLowerCase()}</h6>
-                <div>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-fill text-warning"></span>
-                  <span className="bi bi-star-half text-warning">
-                    {product.rating}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
       </section>
 

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../assets/images/shopperlogo.png";
+import logo from "../../assets/images/shopperBag.png";
 import profile from "../../assets/images/memo_34.png";
 import "./HeaderPage.css";
 import { clearCart } from "../../store/CartSlice";
 import NavbarPage from "../NavbarComponent/NavbarPage";
 import mobiles from "../../assets/images/mobile.png";
 import laptops from "../../assets/images/laptops.png";
-import groceries from "../../assets/images/shopping-bag.png";
-import mens from "../../assets/images/Mens-cloth.png";
+import groceries from "../../assets/images/groceries.png";
+import watch from "../../assets/images/smartwatch.png";
 import furniture from "../../assets/images/furniture.png";
 import decoration from "../../assets/images/home-decoration.png";
 import Shoes from "../../assets/images/trainers.png";
-import light from "../../assets/images/light.png";
+import goggle from "../../assets/images/sunglasses.png";
 
 const HeaderPage = () => {
   const items = useSelector((state) => state.allCart.cart);
@@ -33,7 +33,7 @@ const HeaderPage = () => {
   return (
     <>
       <header>
-        <div>
+        <div className="d-flex justify-content-center align-items-center">
           <img src={logo} alt="logo" width="40" height="40" />
           <b>Shopper</b>
         </div>
@@ -67,7 +67,7 @@ const HeaderPage = () => {
                 />
                 &nbsp;
                 {customer[0].first}
-                {dropShow ? (
+                {dropShow && (
                   <ul
                     onMouseOut={() => setDropShow(false)}
                     className="dropdown-child"
@@ -93,8 +93,6 @@ const HeaderPage = () => {
                       Log Out
                     </li>
                   </ul>
-                ) : (
-                  ""
                 )}
               </div>
             ) : (
@@ -163,12 +161,12 @@ const HeaderPage = () => {
             </div>
           </div>
           <div className="category-container">
-            <img src={mens} alt="Mens-shirts" />
+            <img src={watch} alt="watches" />
             <div
               style={{ position: "absolute", left: "25px", marginTop: "5px" }}
             >
-              <Link to="catagories/mens-shirts" id="link">
-                Mens
+              <Link to="catagories/mens-watches" id="link">
+                Watches
               </Link>
             </div>
           </div>
@@ -201,12 +199,12 @@ const HeaderPage = () => {
             </div>
           </div>
           <div className="category-container">
-            <img src={light} alt="lights" />
+            <img src={goggle} alt="goggle" />
             <div
               style={{ position: "absolute", left: "15px", marginTop: "5px" }}
             >
               <Link to="catagories/sunglasses" id="link">
-                Lighting
+                Sunglasses
               </Link>
             </div>
           </div>

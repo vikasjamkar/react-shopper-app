@@ -17,6 +17,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addWish } from "../../store/WishlistSlice";
 import { add } from "../../store/CartSlice";
+import Card from "../ProductsCards/Card";
 
 const ShopPage = () => {
   const [smartphones, setSmartphones] = useState([]);
@@ -49,22 +50,11 @@ const ShopPage = () => {
     })();
 
     (async () => {
-      const result = await allProducts();
-      const data = result.products.filter((p) => {
-        return p.category === "Women Shoes";
-      });
-      setWomenShoes(data);
+      const result = await allCategory("womens-shoes");
+      // const data = result.products.filter((p) => p.category === "Women Shoes");
+      setWomenShoes(result);
     })();
   }, []);
-
-  const wishItemAdd = (wish) => {
-    if (isLoggedIn) {
-      dispatch(addWish(wish));
-      toast.success("Added to Wishlist");
-    } else {
-      toast.warn("You are not logged In");
-    }
-  };
 
   // const shopAdd = (data) => {
   //   let discountPrice =
@@ -84,42 +74,7 @@ const ShopPage = () => {
 
       <section id="categories_products">
         {smartphones.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              {product.price >= 16000 ? (
-                <div id="offer_label">{"Best Seller"}</div>
-              ) : (
-                <div></div>
-              )}
-              {product.new === false ? (
-                <div id="offer_label_02">{"new"}</div>
-              ) : (
-                <div></div>
-              )}
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title}</h6>
-                <div className="d-flex">
-                  <h5>&#8377;{product.price}</h5>
-                  <div id="rating">({product.rating}) %</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
       </section>
 
@@ -127,42 +82,7 @@ const ShopPage = () => {
 
       <section id="categories_products">
         {laptops.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              {product.price >= 16000 ? (
-                <div id="offer_label">{"Best Seller"}</div>
-              ) : (
-                <div></div>
-              )}
-              {product.new === false ? (
-                <div id="offer_label_02">{"new"}</div>
-              ) : (
-                <div></div>
-              )}
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title}</h6>
-                <div className="d-flex">
-                  <h5>&#8377;{product.price}</h5>
-                  <div id="rating">({product.rating}) %</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
       </section>
 
@@ -170,81 +90,11 @@ const ShopPage = () => {
 
       <section id="categories_products">
         {shoes.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              {product.price >= 16000 ? (
-                <div id="offer_label">{"Best Seller"}</div>
-              ) : (
-                <div></div>
-              )}
-              {product.new === false ? (
-                <div id="offer_label_02">{"new"}</div>
-              ) : (
-                <div></div>
-              )}
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title}</h6>
-                <div className="d-flex">
-                  <h5>&#8377;{product.price}</h5>
-                  <div id="rating">({product.rating}) %</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
 
         {womenShoes.map((product) => (
-          <div
-            className="product_card position-relative"
-            data-aos="fade-up"
-            key={product.id}
-          >
-            <div className="product_card_img">
-              <Link to={`/details/` + product.id}>
-                <img src={product.thumbnail} alt={product.title} />
-              </Link>
-            </div>
-            <div className="product_card_body">
-              <span
-                className="fa-regular fa-heart position-absolute top-0  start-25 end-0 me-4 mt-3"
-                id="heart"
-                onClick={() => wishItemAdd(product)}
-              ></span>
-              {product.price >= 16000 ? (
-                <div id="offer_label">{"Best Seller"}</div>
-              ) : (
-                <div></div>
-              )}
-              {product.new === false ? (
-                <div id="offer_label_02">{"new"}</div>
-              ) : (
-                <div></div>
-              )}
-              <p>{product.brand}</p>
-              <div>
-                <h6>{product.title}</h6>
-                <div className="d-flex">
-                  <h5>&#8377;{product.price}</h5>
-                  <div id="rating">({product.rating}) %</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Card key={product.id} data={product} />
         ))}
       </section>
 
